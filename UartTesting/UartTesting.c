@@ -1,7 +1,7 @@
 /*
  * ================================================================
  *  
- *  RISC-V ACT Framework — Linux UART Validation Tool (v2)
+ *  Linux UART Validation Testing
  * ================================================================
  *
  *  WHAT THIS PROGRAM DOES:
