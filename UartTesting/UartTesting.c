@@ -31,7 +31,7 @@
  *    Terminal 3:  echo "REPLY OK" > /dev/pts/4
  *
  *  BUILD:
- *    gcc -Wall -Wextra -o uart_test uart_test.c
+ *    gcc -o uart_test uart_test.c
  *
  *  RUN:
  *    ./uart_test                    (auto-detect device)
