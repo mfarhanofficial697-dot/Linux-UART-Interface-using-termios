@@ -186,8 +186,3 @@ Total RX bytes: 42 = 2 × 21 bytes — math is exact
 Terminal restored. Device closed cleanly. — no resource leak, no raw-mode shell
 
 
-Important Functions
-FunctionPurposeKey syscalluart_auto_detect()Probe device paths without openingaccess(F_OK)uart_open()Open device with correct flagsopen(O_RDWR|O_NOCTTY|O_NDELAY)uart_configure()Apply 115200 8N1 termios settingstcgetattr, cfmakeraw, tcsetattruart_transmit()Send with partial-write protectionwrite() loop + tcdrain()uart_receive()Timed receive — no blockingselect() + read()uart_restore_and_close()Restore terminal on exittcsetattr + close()sigint_handler()Clean Ctrl+C exitsignal(SIGINT, ...)print_hex_dump()Hex-editor style outputprintf + putchar
-
-Error Handling Coverage
-ErrorerrnoWhat Program DoesDevice not foundENOENTPrints ls /dev/ttyACM* and dmesg | tail hintPermission deniedEACCESPrints chmod 666 and usermod -aG dialout fixDevice busyEBUSYPrints "close minicom/picocom first"write() partial—Loops until all bytes sentwrite() signalEINTRRetries automaticallyselect() signalEINTRReturns 0 (treated as timeout)read() = 0—Detects device disconnecttcsetattr fails—Prints warning, continues
